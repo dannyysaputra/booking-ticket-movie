@@ -3,10 +3,10 @@ package projectuas.bookingticketmovie.service.impl;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import projectuas.bookingticketmovie.dto.UserDto;
-import projectuas.bookingticketmovie.models.Role;
-import projectuas.bookingticketmovie.models.User;
-import projectuas.bookingticketmovie.repository.RoleRepository;
-import projectuas.bookingticketmovie.repository.UserRepository;
+import projectuas.bookingticketmovie.data.entity.Role;
+import projectuas.bookingticketmovie.data.entity.User;
+import projectuas.bookingticketmovie.data.repository.RoleRepository;
+import projectuas.bookingticketmovie.data.repository.UserRepository;
 import projectuas.bookingticketmovie.service.UserService;
 
 import java.util.Arrays;

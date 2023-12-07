@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import projectuas.bookingticketmovie.dto.UserDto;
-import projectuas.bookingticketmovie.models.User;
+import projectuas.bookingticketmovie.data.entity.User;
 import projectuas.bookingticketmovie.service.UserService;
 
 import java.util.List;

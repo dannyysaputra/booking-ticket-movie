@@ -1,4 +1,4 @@
-package projectuas.bookingticketmovie.models;
+package projectuas.bookingticketmovie.data.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

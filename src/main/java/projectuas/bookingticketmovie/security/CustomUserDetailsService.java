@@ -5,9 +5,9 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import projectuas.bookingticketmovie.models.Role;
-import projectuas.bookingticketmovie.models.User;
-import projectuas.bookingticketmovie.repository.UserRepository;
+import projectuas.bookingticketmovie.data.entity.Role;
+import projectuas.bookingticketmovie.data.entity.User;
+import projectuas.bookingticketmovie.data.repository.UserRepository;
 
 import java.util.Collection;
 import java.util.stream.Collectors;
