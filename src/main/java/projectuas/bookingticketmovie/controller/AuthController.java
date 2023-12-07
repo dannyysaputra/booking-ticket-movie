@@ -1,17 +1,17 @@
 package projectuas.bookingticketmovie.controller;
 
 import jakarta.validation.Valid;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import projectuas.bookingticketmovie.dto.UserDto;
 import projectuas.bookingticketmovie.models.User;
 import projectuas.bookingticketmovie.service.UserService;
 
 import java.util.List;
 
+@Controller
 public class AuthController {
     private UserService userService;
 
@@ -22,22 +22,22 @@ public class AuthController {
     // handler method to handle homepage request
     @GetMapping("/")
     public String home() {
-        return "templates/index";
+        return "index";
     }
 
     // handler method to handle login request
     @GetMapping("/login")
     public String login() {
-        return "templates/login";
+        return "login";
     }
 
     // handler method to handle user registration form request
     @GetMapping("/register")
     public String showRegistrationForm(Model model) {
         // create model object to store form data
-//        UserDto user = new UserDto();
-//        model.addAttribute("user", user);
-        return "templates/register";
+        UserDto user = new UserDto();
+        model.addAttribute("user", user);
+        return "register.html";
     }
 
     // handler method to handle user registration form submit request
