@@ -31,6 +31,7 @@ public class SpringSecurity {
                     request
                             .requestMatchers(new AntPathRequestMatcher("/")).permitAll()
                             .requestMatchers(new AntPathRequestMatcher("/movie-details")).permitAll()
+                            .requestMatchers(new AntPathRequestMatcher("/auditoriums")).permitAll()
                             .requestMatchers(new AntPathRequestMatcher("/js/**")).permitAll()
                             .requestMatchers(new AntPathRequestMatcher("/images/**")).permitAll()
                             .requestMatchers(new AntPathRequestMatcher("/css/**")).permitAll()

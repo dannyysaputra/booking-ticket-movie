@@ -1,29 +1,39 @@
 package projectuas.bookingticketmovie.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Set;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "MOVIE")
+@Table(name = "movie")
 public class Movie {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false)
-    private String movieName;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "movie_id")
+    private Long id;
 
-    @Column(nullable = false)
-    private long id;
+    @Column(name = "title")
+    private String title;
 
-    @Column(nullable = false)
-    private String moviePosterUrl;
+    @Column(name = "poster")
+    private String poster;
 
-    @Column(nullable = false)
-    private String movieTags;
+    @Column(name = "genre")
+    private String genre;
+
+    @Column(name = "duration")
+    private Integer duration;
+
+    @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
+    @JsonBackReference
+    private Set<Screening> screenings;
 }
