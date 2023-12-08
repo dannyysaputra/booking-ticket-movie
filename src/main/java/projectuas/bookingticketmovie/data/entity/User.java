@@ -1,6 +1,7 @@
 package projectuas.bookingticketmovie.data.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,12 +25,19 @@ public class User
     private Long id;
 
     @Column(nullable=false)
+    @NotBlank(message = "Name is mandatory")
     private String name;
 
+    @Column(nullable=false, unique = true)
+    @NotBlank(message = "Username is mandatory")
+    private String username;
+
     @Column(nullable=false, unique=true)
+    @NotBlank(message = "Email is mandatory")
     private String email;
 
     @Column(nullable=false)
+    @NotBlank(message = "Password is mandatory")
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
