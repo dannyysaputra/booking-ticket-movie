@@ -19,16 +19,16 @@ public class AuthController {
         this.userService = userService;
     }
 
-    // handler method to handle homepage request
-    @GetMapping("/")
-    public String home() {
-        return "index";
-    }
 
     // handler method to handle login request
     @GetMapping("/login")
     public String login() {
         return "login";
+    }
+
+    @GetMapping("/")
+    public String home() {
+        return "index";
     }
 
     // handler method to handle user registration form request
