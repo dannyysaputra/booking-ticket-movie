@@ -28,21 +28,24 @@ public class SpringSecurity {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests((request) -> {
-//            request.anyRequest().permitAll();
                     request
                             .requestMatchers(new AntPathRequestMatcher("/")).permitAll()
+                            .requestMatchers(new AntPathRequestMatcher("/movie-details")).permitAll()
+                            .requestMatchers(new AntPathRequestMatcher("/js/**")).permitAll()
+                            .requestMatchers(new AntPathRequestMatcher("/images/**")).permitAll()
+                            .requestMatchers(new AntPathRequestMatcher("/css/**")).permitAll()
                             .requestMatchers(new AntPathRequestMatcher("/login")).permitAll()
                             .requestMatchers(new AntPathRequestMatcher("/register")).permitAll()
                             .requestMatchers("/users").hasRole("ADMIN")
                             .anyRequest().authenticated();
                 })
-//                .formLogin(
-//                        (form) -> form
-//                                .loginPage("/login")
-////                                .loginProcessingUrl("/login")
-//                                .defaultSuccessUrl("/users")
-//                                .permitAll()
-//                )
+                .formLogin(
+                        (form) -> form
+                                .loginPage("/login")
+                                .loginProcessingUrl("/login")
+                                .defaultSuccessUrl("/users")
+                                .permitAll()
+                )
                 .logout(
                         (logout) -> logout
                                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))

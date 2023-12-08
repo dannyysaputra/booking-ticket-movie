@@ -37,7 +37,7 @@ public class AuthController {
         // create model object to store form data
         UserDto user = new UserDto();
         model.addAttribute("user", user);
-        return "register.html";
+        return "register";
     }
 
     // handler method to handle user registration form submit request
