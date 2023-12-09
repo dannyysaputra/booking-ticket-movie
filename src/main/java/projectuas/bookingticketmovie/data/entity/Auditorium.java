@@ -27,11 +27,6 @@ public class Auditorium {
     @Column(name = "seat_count")
     private Integer seatCount;
 
-    @ManyToOne
-    @JoinColumn(name = "theatre_id")
-    @JsonManagedReference
-    private Theatre theatre;
-
     @OneToMany(mappedBy = "auditorium", cascade = CascadeType.ALL)
     @JsonBackReference
     private Set<Seat> seats;
