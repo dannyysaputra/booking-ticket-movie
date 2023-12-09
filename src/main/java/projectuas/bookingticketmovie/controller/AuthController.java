@@ -45,11 +45,17 @@ public class AuthController {
     public String registration(@Valid @ModelAttribute("user") UserDto userDto,
                                BindingResult result,
                                Model model) {
-        User existingUser = userService.findUserByEmail(userDto.getEmail());
-
-        if (existingUser != null && existingUser.getEmail() != null && !existingUser.getEmail().isEmpty()) {
+        User existingEmail = userService.findUserByEmail(userDto.getEmail());
+        User existingUsername = userService.findUserByUsername(userDto.getUsername());
+        
+        if (existingEmail != null && existingEmail.getEmail() != null && !existingEmail.getEmail().isEmpty()) {
             result.rejectValue("email", null,
                     "There is already an account registered with the same email");
+        }
+
+        if (existingUsername != null && existingUsername.getUsername() != null && !existingUsername.getUsername().isEmpty()) {
+            result.rejectValue("username", null,
+                    "There is already an account registered with the same username");
         }
 
         if (result.hasErrors()) {
@@ -58,7 +64,7 @@ public class AuthController {
         }
 
         userService.saveUser(userDto);
-        return "redirect:/register?success";
+        return "redirect:/login";
     }
 
     // handler method to handle list of users

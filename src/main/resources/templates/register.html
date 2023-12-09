@@ -24,18 +24,66 @@
 
             <h2>Register</h2>
 
-            <div class="form">
+            <form method="post"
+                  role="form"
+                  th:action="@{/register/save}"
+                  th:object="${user}"
+                  class="form"
+            >
 
                 <div class="inputBox">
-
-                    <input type="text" required> <i>Username</i>
-
+                    <input id="firstName"
+                           name="firstName"
+                           th:field="*{firstName}"
+                           type="text" required
+                    >
+                    <p th:errors = "*{firstName}" class="text-danger"
+                       th:if="${#fields.hasErrors('firstName')}"></p>
+                    <i>First Name</i>
                 </div>
 
                 <div class="inputBox">
+                    <input id="lastName"
+                           name="lastName"
+                           th:field="*{lastName}"
+                           type="text" required
+                    >
+                    <p th:errors = "*{lastName}" class="text-danger"
+                       th:if="${#fields.hasErrors('lastName')}"></p>
+                    <i>Last Name</i>
+                </div>
 
-                    <input type="password" required> <i>Password</i>
+                <div class="inputBox">
+                    <input id="username"
+                           name="username"
+                           th:field="*{username}"
+                           type="text" required
+                    >
+                    <p th:errors = "*{username}" class="text-danger"
+                       th:if="${#fields.hasErrors('username')}"></p>
+                    <i>Username</i>
+                </div>
 
+                <div class="inputBox">
+                    <input id="email"
+                           name="email"
+                           th:field="*{email}"
+                           type="email" required
+                    >
+                    <p th:errors = "*{email}" class="text-danger"
+                       th:if="${#fields.hasErrors('email')}"></p>
+                    <i>Email</i>
+                </div>
+
+                <div class="inputBox">
+                    <input id="password"
+                           name="password"
+                           th:field="*{password}"
+                           type="password" required
+                    >
+                    <p th:errors = "*{password}" class="text-danger"
+                       th:if="${#fields.hasErrors('password')}"></p>
+                    <i>Password</i>
                 </div>
 
                 <div class="links"> <a th:href="@{/login}">Already have an account?</a> <a th:href="@{/login}">Login</a>
@@ -48,7 +96,7 @@
 
                 </div>
 
-            </div>
+            </form>
 
         </div>
 
