@@ -1,17 +1,22 @@
 package projectuas.bookingticketmovie.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "SEAT")
+@Table(name = "seat")
 public class Seat {
 
     @Id
@@ -20,13 +25,15 @@ public class Seat {
     private long seatId;
 
     @Column(nullable = false)
-    private char rowChar;
+    private int seatNumber;
 
-    @Column(nullable = false)
-    private int rowNumber;
+    @ManyToOne
+    @JoinColumn(name = "auditorium_id")
+    @JsonManagedReference
+    private Auditorium auditorium;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "screen_id")
-    private Screen screen;
+    private Screening screen;
 
 }
