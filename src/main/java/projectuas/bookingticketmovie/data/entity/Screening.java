@@ -24,7 +24,6 @@ public class Screening {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "screening_id")
     private Long id;
 
     @ManyToOne
@@ -37,19 +36,19 @@ public class Screening {
     @JsonManagedReference
     private Auditorium auditorium;
 
-    @Column(name = "date")
+    @Column(nullable = false)
     private LocalDate date;
 
-    @Column(name = "start_time")
+    @Column(nullable = false)
     private LocalTime startTime;
 
-    @Column(name = "end_time")
+    @Column(nullable = false)
     private LocalTime endTime;
 
-    @Column(name = "is_full")
+    @Column(nullable = false)
     private Boolean isFull;
 
-    @Column(name = "price")
+    @Column(nullable = false)
     private Double price;
 
     @OneToMany(mappedBy = "screening", cascade = CascadeType.ALL)

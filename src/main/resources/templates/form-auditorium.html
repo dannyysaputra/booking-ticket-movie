@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Auditorium</title>
+</head>
+<body>
+<form action="#" th:action="@{/form-auditorium/save}" th:object="${auditoriums}" method="post">
+    <label for="studio">Studio:</label><br>
+    <input type="text" id="studio" th:field="${auditoriums.studio}">
+    <label for="seat_count">Seat Count:</label><br>
+    <input type="text" id="seat_count" th:field="${auditoriums.seatCount}"><br>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

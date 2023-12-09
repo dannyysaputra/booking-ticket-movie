@@ -22,7 +22,7 @@ import java.util.Set;
 public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "booking_id")
+    @Column(nullable = false)
     private Long id;
 
     @ManyToOne
@@ -35,13 +35,13 @@ public class Booking {
     @JsonManagedReference
     private User user;
 
-    @Column(name = "booking_time")
+    @Column(nullable = false)
     private LocalTime bookingTime;
 
-    @Column(name = "is_booked")
+    @Column(nullable = false)
     private boolean isBooked;
 
-    @Column(name = "is_active")
+    @Column(nullable = false)
     private boolean isActive;
 
     @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL)

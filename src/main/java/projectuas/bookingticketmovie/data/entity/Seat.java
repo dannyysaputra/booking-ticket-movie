@@ -21,8 +21,7 @@ public class Seat {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false)
-    private long seatId;
+    private long id;
 
     @Column(nullable = false)
     private int seatNumber;

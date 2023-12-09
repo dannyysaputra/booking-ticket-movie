@@ -19,7 +19,6 @@ import java.util.Set;
 public class SeatBooked {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "seat_booked_id")
     private Long id;
 
     @ManyToOne

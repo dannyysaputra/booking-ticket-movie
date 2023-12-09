@@ -21,10 +21,13 @@ import java.util.Set;
 public class Auditorium {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "auditorium_id")
+    @Column(nullable = false)
     private Long id;
 
-    @Column(name = "seat_count")
+    @Column(nullable = false, unique = true)
+    private Integer studio;
+
+    @Column(nullable = false)
     private Integer seatCount;
 
     @OneToMany(mappedBy = "auditorium", cascade = CascadeType.ALL)

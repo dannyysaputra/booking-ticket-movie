@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.Set;
 
 @Getter
@@ -17,23 +18,31 @@ import java.util.Set;
 @Table(name = "movie")
 public class Movie {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "movie_id")
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
+    private long id;
 
-    @Column(name = "title")
-    private String title;
+    @Column(nullable = false)
+    private String movieName;
 
-    @Column(name = "poster")
-    private String poster;
+    @Column(nullable = false)
+    private String description;
 
-    @Column(name = "genre")
-    private String genre;
+    @Column(nullable = false)
+    private Integer durationInMinute;
 
-    @Column(name = "duration")
-    private Integer duration;
+    @Column(nullable = false)
+    private String trailerLink;
 
-    @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
-    @JsonBackReference
-    private Set<Screening> screenings;
+    @Column(nullable = false)
+    private String moviePosterUrl;
+
+    @Column(nullable = false)
+    private String movieBackdropUrl;
+
+    @Column(nullable = false)
+    private String movieTags;
+
+    @Column(nullable = false)
+    private ArrayList<String> genres;
 }
